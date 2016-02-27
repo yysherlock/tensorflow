@@ -9,6 +9,7 @@ matrix2 = tf.constant([[2.], [2.]])
 
 # Create a Matmul (matrix multiply) op that takes 'matrix1' and 'matrix2' as inputs. The returned value, 'product', represents the result of the matrix multiplication.
 product = tf.matmul(matrix1, matrix2)
+print('product: ', type(product))
 print product
 
 # Launching the graph in a session
@@ -19,6 +20,7 @@ sess = tf.Session()
 # The output of the op is returned in 'result' as a numpy 'ndarray' object.
 result = sess.run(product)
 print(result)
+print(type(result))
 
 sess.close()
 

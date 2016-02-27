@@ -29,4 +29,6 @@ with tf.Session() as sess:
         sess.run(update)
         print(sess.run(state))
         print(sess.run(update))
+        print(type(sess.run(state)))
+        print(type(sess.run(update)))
 
