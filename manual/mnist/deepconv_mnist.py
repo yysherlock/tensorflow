@@ -51,4 +51,20 @@ print accuracy.eval(feed_dict = {x:mnist.test.images, y_:mnist.test.labels})
 
 # To create this model, we're going to need to create a lot of weights and biases. One should generally initialize weights with a small amount of noise for symmetry breaking, and to prevent 0 gradients. 
 
+# Weight Initialization
+
+# One should generally initialize weights with a small amount of noise for symmetry breaking, and to prevent 0 gradients.
+
+def weight_variable(shape):
+    initial = tf.truncated_normal(shape, stddev = 0.1)
+    return tf.Variable(initial) # initial is a Tensor
+
+# Since we're using ReLU neurons, it is also good practice to initialize them with a slightly positive initial bias to avoid "dead neurons".
+def bias_variable(shape):
+    initial = tf.constant(0.1, shape = shape)
+    return tf.Variable(initial)
+
+# Convolution and Pooling
+# TensorFlow also gives us a lot of flexibility in convolution and pooling operations. How do we handle the boundaries? What is our stride size? In this example, we're always going to choose the vanilla version. Our convolutions uses a stride of one and are zero padded so that the output is the same size as the input. Our pooling is plain old amx pooling over 2x2 blocks. To keep our code cleaner, let's also abstract those operations into functions.
+
 
